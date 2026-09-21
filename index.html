@@ -62,8 +62,11 @@
         <h2>Publications</h2>
         <p class="section-note"><a href="publications.html">View all</a></p>
       </div>
-      <div class="project-grid">
-        <a class="project-card" href="https://doi.org/10.3390/s25144252" rel="noopener">
+      <div class="carousel" data-visible="2" aria-label="Publications carousel">
+        <button type="button" class="carousel-btn carousel-btn--prev" aria-label="Previous publications" hidden>‹</button>
+        <div class="carousel-viewport">
+          <div class="carousel-track">
+<a class="project-card" href="https://doi.org/10.3390/s25144252" rel="noopener">
           <img src="assets/publications/sensors-2025-p1.jpg" alt="First page of Sensors 2025 paper" loading="lazy" />
           <div class="project-body">
             <p class="project-label">Sensors 2025 · First author</p>
@@ -87,9 +90,11 @@
             <p>Adaptive sliding mode control with a novel sliding-variable-based adaptive law for disturbed robot manipulators.</p>
           </div>
         </a>
-
+          </div>
+        </div>
+        <button type="button" class="carousel-btn carousel-btn--next" aria-label="Next publications">›</button>
       </div>
-    </section>
+</section>
 
     <section id="activities" class="wrap section">
       <div class="section-head">
@@ -131,5 +136,57 @@
   <footer class="site-footer">
     <div class="wrap">© Jinwoong Lee · Sejong University</div>
   </footer>
+
+  <script>
+  (function () {
+    document.querySelectorAll(".carousel").forEach(function (root) {
+      var viewport = root.querySelector(".carousel-viewport");
+      var track = root.querySelector(".carousel-track");
+      var prev = root.querySelector(".carousel-btn--prev");
+      var next = root.querySelector(".carousel-btn--next");
+      var visible = parseInt(root.getAttribute("data-visible") || "2", 10);
+      var index = 0;
+
+      function cards() {
+        return Array.prototype.slice.call(track.children).filter(function (el) {
+          return el.nodeType === 1;
+        });
+      }
+
+      function maxIndex() {
+        return Math.max(0, cards().length - visible);
+      }
+
+      function update() {
+        var list = cards();
+        if (!list.length) return;
+        var card = list[0];
+        var gap = parseFloat(getComputedStyle(track).gap) || 0;
+        var step = card.getBoundingClientRect().width + gap;
+        track.style.transform = "translateX(" + (-index * step) + "px)";
+        prev.hidden = index <= 0;
+        next.hidden = index >= maxIndex();
+      }
+
+      prev.addEventListener("click", function () {
+        index = Math.max(0, index - 1);
+        update();
+      });
+      next.addEventListener("click", function () {
+        index = Math.min(maxIndex(), index + 1);
+        update();
+      });
+      window.addEventListener("resize", function () {
+        // on narrow screens show 1
+        var w = window.innerWidth;
+        visible = w <= 700 ? 1 : parseInt(root.getAttribute("data-visible") || "2", 10);
+        index = Math.min(index, maxIndex());
+        update();
+      });
+      update();
+    });
+  })();
+  </script>
+
 </body>
 </html>
