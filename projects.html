@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects · Jinwoong Lee</title>
+  <meta name="description" content="Research projects by Jinwoong Lee." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">Jinwoong Lee</a>
+      <nav aria-label="Primary">
+        <a href="publications.html">Publications</a>
+        <a href="projects.html" class="is-active" aria-current="page">Projects</a>
+        <a href="activities.html">Activities</a>
+        <a href="cv.html">CV</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="wrap section page-hero">
+      <p class="eyebrow">Research projects</p>
+      <h1>Projects</h1>
+      <p class="lead">Selected research and development projects. Newest first.</p>
+    </section>
+
+    <section class="wrap section">
+      <div class="year-block">
+        <h2 class="year">2024</h2>
+        <article class="activity-card" id="home-mobility-llm">
+          <div class="activity-media activity-media--single">
+            <figure>
+              <img class="activity-photo" src="assets/activities/2024-tokyo.jpg" alt="At EBRC&amp;HOME 2024, Tokyo" width="720" height="540" loading="lazy" />
+              <figcaption>On site</figcaption>
+            </figure>
+          </div>
+          <div>
+            <p class="activity-type">Project poster</p>
+            <p class="activity-title">Home mobility with LLM</p>
+            <p class="activity-venue">The 6th Engineering in Biomedical and Rehabilitation &amp; Home Conference (EBRC&amp;HOME)</p>
+            <p class="activity-meta">June 24–28, 2024 · Tokyo, Japan</p>
+            <p class="activity-note">A custom ChatGPT-4o GPT converts natural-language commands into ROS2 Python nodes. An API then automatically extracts, packages, builds, and runs the generated code to drive a WeGo LIMO mobile robot. The pipeline was verified with commands such as driving a 2&nbsp;m-diameter circle twice.</p>
+            <p class="activity-note"><strong>Team:</strong> Jinwoong Lee, Hyuk Mo An, Dong Hee Seo<br />
+              <strong>Advisor:</strong> Professor Seok Young Lee<br />
+              <strong>Industry partner:</strong> Assemble Inc.</p>
+            <ul class="tags" aria-label="Tags" style="margin-top: 0.75rem;">
+              <li>LLM</li>
+              <li>ROS2</li>
+              <li>Mobile robot</li>
+              <li>ChatGPT-4o</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">© Jinwoong Lee · Sejong University</div>
+  </footer>
+</body>
+</html>
