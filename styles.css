@@ -124,6 +124,7 @@ h1 {
   letter-spacing: -0.02em;
 }
 .lead { font-size: 1.08rem; margin: 0 0 0.75rem; max-width: 62ch; }
+#about .lead { max-width: none; text-align: justify; }
 .meta { margin: 0; color: var(--muted); }
 
 .tags {
